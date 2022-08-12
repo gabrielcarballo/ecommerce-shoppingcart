@@ -1,3 +1,17 @@
+const searchProductEndpoint = 'https://api.mercadolibre.com/items/';
+
+const returnProductSearchEndpoint = async (search) => {
+  try {
+    const url = `${searchProductEndpoint}${search}`;
+    const result = await fetch(url);
+    const resultJSON = await result.json();
+    return resultJSON;
+  } catch (error) {
+    return error;
+  }
+};
+returnProductSearchEndpoint('computador');
+
 const createProductImageElement = (imageSource) => {
   const img = document.createElement('img');
   img.className = 'item__image';

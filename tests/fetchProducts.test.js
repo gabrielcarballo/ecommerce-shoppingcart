@@ -23,9 +23,9 @@ describe('1 - Teste a função fetchProducts', () => {
     expect(test).toEqual(computadorSearch)
   });
   it('Testa se retorna o erro: You must provide an url se chamada a função sem parâmetro', async () => {
-    try{
+    try {
       await fetchProducts()
-    } catch (error){
+    } catch (error) {
       expect(error).toEqual(new Error('You must provide an url'));
     }
   });
