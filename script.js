@@ -52,8 +52,6 @@ const createCartItemElement = ({ sku, name, salePrice }) => {
   return li;
 };
 
-
-
 window.onload = () => { 
   fetchProducts('computador').then((initialData) => {
     initialData.forEach(((data) => {
