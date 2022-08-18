@@ -1,6 +1,6 @@
-const searchProductEndpoint = 'https://api.mercadolibre.com/items/';
 
-const returnProductSearchEndpoint = async (search) => {
+const searchProductEndpoint = 'https://api.mercadolibre.com/items/';
+/* const returnProductSearchEndpoint = async (search) => {
   try {
     const url = `${searchProductEndpoint}${search}`;
     const result = await fetch(url);
@@ -10,7 +10,10 @@ const returnProductSearchEndpoint = async (search) => {
     return error;
   }
 };
-returnProductSearchEndpoint('computador');
+returnProductSearchEndpoint('computador'); */
+
+
+
 
 const createProductImageElement = (imageSource) => {
   const img = document.createElement('img');
@@ -29,7 +32,7 @@ const createCustomElement = (element, className, innerText) => {
 const createProductItemElement = ({ sku, name, image }) => {
   const section = document.createElement('section');
   section.className = 'item';
-
+  
   section.appendChild(createCustomElement('span', 'item__sku', sku));
   section.appendChild(createCustomElement('span', 'item__title', name));
   section.appendChild(createProductImageElement(image));
@@ -52,4 +55,15 @@ const createCartItemElement = ({ sku, name, salePrice }) => {
   return li;
 };
 
-window.onload = () => { };
+fetchProducts('computador').then((initialData) => {
+  initialData.map((element) => ({
+    sku :element.id,
+    name : element.title,
+    image : element.thumbnail,
+}), {})
+  const place = document.querySelector('.items')
+  place.appendChild(createProductItemElement(element))
+})
+
+window.onload = () => {};
+ 

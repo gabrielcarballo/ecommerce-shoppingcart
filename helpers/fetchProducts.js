@@ -5,7 +5,7 @@ const fetchProducts = async (search) => {
     const url = `${searchEndpoint}${search}`;
     const result = await fetch(url);
     const resultJSON = await result.json();
-    return resultJSON;
+    return resultJSON.results;
 };
 if (typeof module !== 'undefined') {
   module.exports = {
