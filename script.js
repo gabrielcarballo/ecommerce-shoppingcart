@@ -52,12 +52,14 @@ const createCartItemElement = ({ sku, name, salePrice }) => {
   return li;
 };
 
-fetchProducts('computador').then((initialData) => {
-  initialData.forEach(((data) => {
-    const { id: sku, title: name, thumbnail: image } = data;
-    console.log(data);
-    place.appendChild(createProductItemElement({ sku, name, image }));
-  }));
-});
 
-window.onload = () => { };
+
+window.onload = () => { 
+  fetchProducts('computador').then((initialData) => {
+    initialData.forEach(((data) => {
+      const { id: sku, title: name, thumbnail: image } = data;
+      console.log(data);
+      place.appendChild(createProductItemElement({ sku, name, image }));
+    }));
+  });
+};
