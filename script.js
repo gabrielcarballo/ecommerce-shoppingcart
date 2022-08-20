@@ -1,7 +1,6 @@
 const place = document.querySelector('.items');
 const cartList = document.querySelector('.cart__items');
 
-
 const createProductImageElement = (imageSource) => {
   const img = document.createElement('img');
   img.className = 'item__image';
@@ -38,7 +37,7 @@ const initialLoadingData = () => fetchProducts('computador').then((initialData) 
 const getSkuFromProductItem = (item) => item.querySelector('span.item__sku').innerText;
 
 const cartItemClickListener = (event) => {
-  // coloque seu código aqui
+  console.log('evento ta aqui');
 };
 
 const createCartItemElement = ({ sku, name, salePrice }) => {
@@ -53,8 +52,8 @@ const getProductInfo = async (e) => {
   clickID = e.target.parentNode.childNodes[0].innerText;
   const info = await fetchItem(clickID);
   const infotest = ({ sku: info.id, name: info.title, salePrice: info.price });
-  const appendItem = createCartItemElement(infotest)
-  cartList.appendChild(appendItem)
+  const appendItem = createCartItemElement(infotest);
+  cartList.appendChild(appendItem);
 };
 
 const addItemCartEvent = async () => {
