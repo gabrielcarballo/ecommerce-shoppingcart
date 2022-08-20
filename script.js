@@ -47,26 +47,23 @@ const createCartItemElement = ({ sku, name, salePrice }) => {
   return li;
 };
 
-const getProductInfo = async () => {
-  clickID =  event.target.parentNode.childNodes[0].innerText;
+const getProductInfo = async (e) => {
+  clickID = e.target.parentNode.childNodes[0].innerText;
   const info = await fetchItem(clickID);
   console.log(info);
-  const infotest = {sku: info.id, name: info.title, salePrice: info.price}
+  const infotest = { sku: info.id, name: info.title, salePrice: info.price };
   console.log(infotest);
   return info;
 };
 
-const addItemCartEvent = async (a) => 
-{
-  const e = document.querySelectorAll('.item__add')
+const addItemCartEvent = async (a) => {
+  const e = document.querySelectorAll('.item__add');
   e.forEach((element) => {
-    element.addEventListener('click', getProductInfo)
-  })
-} 
+    element.addEventListener('click', getProductInfo);
+  });
+}; 
 
 window.onload = async () => {
 await initialLoadingData();
 addItemCartEvent();
-
- 
 };
