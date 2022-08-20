@@ -51,15 +51,13 @@ const createCartItemElement = ({ sku, name, salePrice }) => {
 
 const getProductInfo = async (e) => {
   clickID = e.target.parentNode.childNodes[0].innerText;
-  const {id, title, price } = await fetchItem(clickID);
-  
-  const infotest = ({ sku: id, name: title, salePrice: price });
-  console.log(infotest);
+  const info = await fetchItem(clickID);
+  const infotest = ({ sku: info.id, name: info.title, salePrice: info.price });
   const appendItem = createCartItemElement(infotest)
   cartList.appendChild(appendItem)
 };
 
-const addItemCartEvent = async (a) => {
+const addItemCartEvent = async () => {
   const e = document.querySelectorAll('.item__add');
   e.forEach((element) => {
     element.addEventListener('click', getProductInfo);
