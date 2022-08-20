@@ -47,7 +47,14 @@ const createCartItemElement = ({ sku, name, salePrice }) => {
   return li;
 };
 
-const getProductInfo = () => { return  console.log(typeof (event.target.parentNode.childNodes[0].innerText)); };
+const getProductInfo = async () => {
+  clickID =  event.target.parentNode.childNodes[0].innerText;
+  const info = await fetchItem(clickID);
+  console.log(info);
+  const infotest = {sku: info.id, name: info.title, salePrice: info.price}
+  console.log(infotest);
+  return info;
+};
 
 const addItemCartEvent = async (a) => 
 {
