@@ -37,7 +37,7 @@ const initialLoadingData = () => fetchProducts('computador').then((initialData) 
 const getSkuFromProductItem = (item) => item.querySelector('span.item__sku').innerText;
 
 const cartItemClickListener = (event) => {
-  console.log('evento ta aqui');
+  event.target.remove();
 };
 
 const createCartItemElement = ({ sku, name, salePrice }) => {
