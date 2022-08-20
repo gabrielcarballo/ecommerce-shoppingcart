@@ -1,4 +1,6 @@
 const place = document.querySelector('.items');
+const cartList = document.querySelector('.cart__items');
+
 
 const createProductImageElement = (imageSource) => {
   const img = document.createElement('img');
@@ -49,11 +51,12 @@ const createCartItemElement = ({ sku, name, salePrice }) => {
 
 const getProductInfo = async (e) => {
   clickID = e.target.parentNode.childNodes[0].innerText;
-  const info = await fetchItem(clickID);
-  console.log(info);
-  const infotest = { sku: info.id, name: info.title, salePrice: info.price };
+  const {id, title, price } = await fetchItem(clickID);
+  
+  const infotest = ({ sku: id, name: title, salePrice: price });
   console.log(infotest);
-  return info;
+  const appendItem = createCartItemElement(infotest)
+  cartList.appendChild(appendItem)
 };
 
 const addItemCartEvent = async (a) => {
