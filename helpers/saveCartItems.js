@@ -1,5 +1,5 @@
 const saveCartItems = (list) => {
-  if (list === undefined) throw new Error('Não há itens no carrinho!')
+  if (list === undefined) throw new Error('Não há itens no carrinho!');
   localStorage.setItem('cartItems', list);
 };
 
