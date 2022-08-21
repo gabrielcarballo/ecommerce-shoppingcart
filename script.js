@@ -50,7 +50,7 @@ const cartItemClickListener = (event) => {
 };
 
 const refreshingEventsOnStorageGet = () => {
-  cart.childNodes.forEach((e) => {
+  cartList.childNodes.forEach((e) => {
     e.addEventListener('click', cartItemClickListener);
   });
 };
