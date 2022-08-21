@@ -11,7 +11,6 @@ const createProductImageElement = (imageSource) => {
 
 function cleaningSection() {
   document.querySelector('.items').innerHTML = '';
-  localStorage.cartItem = '';
 }
 
 const createCustomElement = (element, className, innerText) => {
@@ -44,6 +43,16 @@ const initialLoadingData = () =>
 
 const cartItemClickListener = (event) => {
   event.target.remove();
+
+  /* if (localStorage.cartItems.includes(event.target.innerHTML)){
+    localStorage.cartItems.replace(event.target.innerHTML, '')
+  } */
+};
+
+const refreshingEventsOnStorageGet = () => {
+  cartList.childNodes.forEach((e) => {
+    e.addEventListener('click', cartItemClickListener);
+  });
 };
 
 const createCartItemElement = ({ sku, name, salePrice }) => {
@@ -83,4 +92,6 @@ window.onload = async () => {
   await initialLoadingData();
   addItemCartEvent();
   cleanCart();
+  getSavedCartItems();
+  refreshingEventsOnStorageGet();
 };
