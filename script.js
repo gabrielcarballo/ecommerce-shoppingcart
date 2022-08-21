@@ -1,5 +1,6 @@
 const place = document.querySelector('.items');
 const cartList = document.querySelector('.cart__items');
+const currentTotalValue = [0];
 
 const createProductImageElement = (imageSource) => {
   const img = document.createElement('img');
@@ -73,6 +74,9 @@ const cleanCart = () => {
   });
 };
 
+const refreshingTotalPurchaseValue = () => {
+
+};
 window.onload = async () => {
   await initialLoadingData();
   addItemCartEvent();
