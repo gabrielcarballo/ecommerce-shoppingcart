@@ -11,6 +11,7 @@ const createProductImageElement = (imageSource) => {
 
 function cleaningSection() {
   document.querySelector('.items').innerHTML = '';
+  localStorage.cartItem = '';
 }
 
 const createCustomElement = (element, className, innerText) => {
@@ -59,6 +60,7 @@ const getProductInfo = async (e) => {
   const infotest = ({ sku: info.id, name: info.title, salePrice: info.price });
   const appendItem = createCartItemElement(infotest);
   cartList.appendChild(appendItem);
+  saveCartItems(cartList.innerHTML);
 };
 
 const addItemCartEvent = async () => {
