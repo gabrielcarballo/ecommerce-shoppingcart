@@ -8,12 +8,12 @@ describe('3 - Teste a função saveCartItems', () => {
     try {
       saveCartItems()
     } catch (error){
-      expect(saveCartItems()).toEqual(new Error('Não há itens no carrinho!'))
+      expect(error).toEqual(new Error('Não há itens no carrinho!'))
     }
   });
 
-  it('d', () => {
+  it('Testa se o Local Storage é setado com o valor passado por parâmetro', async () => {
     const expected = saveCartItems('<ol><li>Item</li></ol>')
-    expect(expected).toHaveBeenCalledWith('localStorage.setItem')
+    expect(localStorage.setItem).toHaveBeenCalled()
   })
 });
