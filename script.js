@@ -8,6 +8,10 @@ const createProductImageElement = (imageSource) => {
   return img;
 };
 
+function cleaningSection() {
+  document.querySelector('.items').innerHTML = '';
+}
+
 const createCustomElement = (element, className, innerText) => {
   const e = document.createElement(element);
   e.className = className;
@@ -27,7 +31,10 @@ const createProductItemElement = ({ sku, name, image }) => {
   return section;
 };
 
-const initialLoadingData = () => fetchProducts('computador').then((initialData) => {
+const initialLoadingData = () =>
+  
+fetchProducts('computador').then((initialData) => {
+  cleaningSection();
   initialData.forEach(((data) => {
     const { id: sku, title: name, thumbnail: image } = data;
     place.appendChild(createProductItemElement({ sku, name, image }));
@@ -61,9 +68,9 @@ const addItemCartEvent = async () => {
   e.forEach((element) => {
     element.addEventListener('click', getProductInfo);
   });
-}; 
+};
 
 window.onload = async () => {
-await initialLoadingData();
-addItemCartEvent();
+  await initialLoadingData();
+  addItemCartEvent();
 };
