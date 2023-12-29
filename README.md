@@ -21,8 +21,6 @@ The project includes the following functionalities:
 
 ## Project Requirements
 
-## Project Requirements
-
 1. (TDD) Develop tests with at least 25% total coverage and 100% coverage for the `fetchProducts` function. Implement the necessary tests in the `fetchProducts` function.
 2. Create a product listing. Use the `fetchProducts` function to create a product listing through the Mercado Livre API.
 3. (TDD) Develop tests with at least 50% total coverage and 100% coverage for the `fetchItem` function. Implement the necessary tests in the `fetchItem` function.
